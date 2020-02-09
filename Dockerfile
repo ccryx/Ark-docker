@@ -1,6 +1,6 @@
-FROM ubuntu:14.04
+FROM ubuntu:18.04
 
-MAINTAINER TuRzAm
+MAINTAINER ccryx
 
 # Var for first config
 # Server Name
@@ -34,7 +34,7 @@ ENV GID 1000
 
 # Install dependencies 
 RUN apt-get update &&\ 
-    apt-get install -y curl lib32gcc1 lsof git
+    apt-get install -y curl lib32gcc1 lsof git sudo
 
 # Enable passwordless sudo for users under the "sudo" group
 RUN sed -i.bkp -e \
@@ -92,7 +92,7 @@ RUN mkdir /home/steam/steamcmd &&\
 
 # First run is on anonymous to download the app
 # We can't download from docker hub anymore -_-
-#RUN /home/steam/steamcmd/steamcmd.sh +login anonymous +quit
+RUN /home/steam/steamcmd/steamcmd.sh +login anonymous +quit
 
 EXPOSE ${STEAMPORT} 32330 ${SERVERPORT}
 # Add UDP
