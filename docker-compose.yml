@@ -1,9 +1,9 @@
 ark:
   container_name: ark
-  image: turzam/ark
+  image: ccryx/ark
   environment:
     - SESSIONNAME=Ark Docker
-    - SERVERMAP=TheIsland
+    - SERVERMAP=TheCenter
     - SERVERPASSWORD="" 
     - ADMINPASSWORD=adminpassword
     - BACKUPONSTART=1
